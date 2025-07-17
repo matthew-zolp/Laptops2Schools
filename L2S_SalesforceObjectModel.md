@@ -1,69 +1,69 @@
 ```mermaid
-classDiagram
-    class Company {
-        +Name
-        +Industry
-        +Contact_Info
+erDiagram
+    Account {
+        Name text
+        Industry text
+        Contact_Info text
     }
-
-    class Donation_Batch {
-        +Batch_Name
-        +Donation_Date
-        +Total_Laptops
-        +Donation_Value_USD
-        +Donation_Value_Local
+    Donation_Batch__c {
+        Batch_Name text
+        Donation_Date date
+        Total_Laptops number
+        Donation_Value_USD currency
+        Donation_Value_Local currency
     }
-
-    class Laptop {
-        +Serial_Number
-        +Model
-        +Manufacture_Date
-        +PII_Flag
-        +Status
+    Laptop__c {
+        Laptop_Delivery__c lookup
+        Serial_Number text
+        Model text
+        Manufacture_Date date
+        PII_Flag boolean
+        Status text
+        Brand text
+        OS text
+        Processor text
+        Memory text
+        Hard_Drive text
+        Monetary_Value currency
     }
-
-    class Laptop_Model {
-        +Brand
-        +OS
-        +Processor
-        +Memory
-        +Hard_Drive
-        +Monetary_Value
+    School__c {
+        Name text
+        Address text
+        Region text
+        Language text
+        Total_Students number
+        Requested_Software text
+        Class_Types text
     }
-    class School {
-        +Name
-        +Address
-        +Region
-        +Language
-        +Total_Students
-        +Requested_Software
-        +Class_Types
+    Laptop_Delivery__c {
+        Allocation_Date date
+        Approved_By_Manager boolean
     }
-
-    class Laptop_Allocation {
-        +Allocation_Date
-        +Approved_By_Manager
+    Contact {
+        Name text
+        Skills text
+        Performance_Score number
+        Language text
+        Email text
     }
-
-    class Volunteer {
-        +Name
-        +Skills
-        +Performance_Score
-        +Language
-        +Email
+    Volunteer_Assignment__c {
+        Volunteer lookup
+        Laptop_Delivery lookup
     }
-
-        class Volunteer_Assignment {
-        +Volunteer
-        +Laptop_Allocation
+    Volunteer_Feedback__c {
+    School lookup
+    Volunteer lookup
+    Laptop_Delivery lookup
+    Comments text-long
+    Rating number
     }
-
-    %% Label cardinality text manually
-    Company --> Donation_Batch : "1 to many"
-    Donation_Batch --> Laptop : "1 to many"
-    Laptop_Allocation --> Laptop : "1 to many"
-    Laptop <-- Laptop_Model : "1 to many"
-    School --> Laptop_Allocation : "1 to many"
-    Laptop_Allocation --> Volunteer_Assignment : "1 to many"
-    Volunteer_Assignment <-- Volunteer : "1 to many"
+    Account ||--o{ Donation_Batch__c : donates
+    Donation_Batch__c ||--o{ Laptop__c : contains
+    School__c ||--o{ Volunteer_Feedback__c : defines
+    Laptop_Delivery__c ||--o{ Volunteer_Feedback__c : defines
+    School__c ||--o{ Laptop_Delivery__c : receives
+    Contact ||--o{ Volunteer_Feedback__c : defines
+    Laptop_Delivery__c ||--o{ Laptop__c : allocates
+    Contact ||--o{ Volunteer_Assignment__c : volunteers
+    Laptop_Delivery__c ||--o{ Volunteer_Assignment__c : assigns
 ```
