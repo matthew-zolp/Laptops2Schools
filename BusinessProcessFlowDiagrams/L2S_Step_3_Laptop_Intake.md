@@ -1,7 +1,7 @@
 # Step 3: Laptop Intake Process Automation
 
 ```mermaid
-flowchart LR
+flowchart TD
     A[Laptops arrive at Shipping Hub] --> B[Update Donation Batch status to Arrived]
     B --> C[Assign laptops to L2S IT Specialists via OmniChannel routing]
 
