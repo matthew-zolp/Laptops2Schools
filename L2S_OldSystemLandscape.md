@@ -14,11 +14,8 @@ flowchart TD
         SchoolACs["School Allocation Coordinators (School ACs)"]
         RecyclingACs["Recycling Allocation Coordinators (Recycling ACs)"]
         Managers["L2S Managers"]
-        Volunteers["Volunteers"]
-        VirtualExperts["Virtual Experts"]
-        Corporations["Corporations"]
         RecyclingCompanies["3rd Party Recycling Companies"]
-        Schools["Schools"]
+        Volunteers
     end
 
     %% System Access
@@ -30,9 +27,6 @@ flowchart TD
     SchoolACs -- "Web Access" --> InventorySystem
     RecyclingACs -- "Web Access" --> InventorySystem
     Managers -- "Web Access" --> InventorySystem
-    Volunteers -- "Access Training/Software" --> CloudStorage
-    VirtualExperts -- "Support Schools/Students" --> CloudStorage
-    Corporations -- "Web Access, Upload CSV" --> InventorySystem
     RecyclingCompanies -- "Web Access, Update Payment" --> InventorySystem
-    Schools -- "Web Access" --> InventorySystem
+    Volunteers --"Web Access" --> CloudStorage
 ```
