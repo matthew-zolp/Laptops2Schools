@@ -1,5 +1,5 @@
 ```mermaid
-flowchart LR
+flowchart TD
     A[5,000 Corporations] -->|Donate ~300 laptops/month each| B[Laptop Donations]
     B --> C{Shipping Hubs}
     C -->|Route 1| D[Denver Hub]
