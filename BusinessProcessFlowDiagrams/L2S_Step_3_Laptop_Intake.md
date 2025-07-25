@@ -26,7 +26,6 @@ flowchart TD
     Q -- PII Flag removed --> O
     Q -- PII Flag still set --> R[Reassign to Security Team Manager]
     %% Audit Trail (optional enhancement)
-    M --> AT3[Create audit log: Corporation instruction received]
     %% End state
     E4 --> Z[Ready for Laptop Allocation or Recycling]
     O --> Z
