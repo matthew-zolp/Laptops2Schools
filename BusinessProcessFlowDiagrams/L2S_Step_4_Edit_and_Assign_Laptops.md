@@ -1,25 +1,18 @@
-## Step 5: Automating Laptop Monetary Value and Assignment
-
-### Steps to Automate
-- L2S IT Specialists complete the donation intake process by adding details to the laptop records (manufacture date, processor type, memory, hard drive capacity).
-- Laptops are designated for schools or recycling based on these details.
-- Laptops for schools are assigned a monetary value using a government estimating web service.
-- Laptop records are assigned to School ACs or Recycling ACs based on region and current workload.
-
 ```mermaid
 flowchart TD
-    A[L2S IT Specialist edits Laptop__c details]
-    B{Are all details filled out?}
+    A[L2S IT Specialists complete donation intake<br>and add laptop details:<br>- Manufacture date<br>- Processor type<br>- Memory<br>- Hard drive capacity]
+    B{Designate laptop for<br>Schools or Recycling}
+    C[Laptop designated for Schools]
+    D[Laptop designated for Recycling]
+    E[Assign monetary value using<br>government estimating web service -- MuleSoft]
+    F[Update designations and monetary value<br>in inventory system real time -- MuleSoft]
+    G[Assign laptop records to<br>School ACs or Recycling ACs<br>based on current volume -- OmniChannel]
+
     A --> B
-    B -- "Yes" --> C[MuleSoft API calls government webservice for value]
-    C --> D[MuleSoft updates Laptop__c with monetary value]
-    D --> E{Designation status set?}
-    E -- "No" --> F[User must set designation to School or Recycling]
-    E -- "Yes" --> G[Designate Laptop button becomes visible]
-    G --> H[User selects Designate Laptop]
-    H --> I{Designation}
-    I -- "School" --> J[Assign to Regional School AC queue]
-    I -- "Recycling" --> K[Assign to Regional Recycling AC queue]
+    B -- Schools --> C
+    B -- Recycling --> D
+    C --> E
+    E --> F
+    F --> G
+    D --> G
 ```
-**Notes:**
-- Assignment to Users from queues is automated via OmniChannel based on region and capacity.
