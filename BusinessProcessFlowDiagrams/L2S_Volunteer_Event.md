@@ -9,8 +9,9 @@ flowchart TD
   B2[Downloads software from cloud]
   B3[Fills in Software Name, License ID, Expiration Date]
   B4[LaptopSoftwareInstallation__c records created]
+  B5[Volunteer Completes Assignment - Checks Out in Portal]
 
   C1[Volunteers collaborate using Slack - Channel per Region]
 
-  A1 --> A2 --> A3 --> A4 --> B1 --> B2 --> B3 --> B4 --> C1
+  A1 --> A2 --> A3 --> A4 --> B1 --> B2 --> B3 --> B4 --> B5 --> C1
   ```
