@@ -15,7 +15,7 @@ flowchart TD
     FLOW4[Store Uploaded File ContentVersion]
     LOOP[Loop Through Donor Accounts]
     CHATTER1[Post FeedItem to Donor Account Chatter Feed]
-    CHATTER2[Attach Uploaded Video using ContentDocumentLink]
+    CHATTER2[Attach Uploaded Video using FeedAttachment]
   end
 
   UI1 --> UI2 --> UI3 --> UI5 --> UI6 --> FLOW1 --> FLOW2 --> FLOW3 --> FLOW4 --> LOOP
