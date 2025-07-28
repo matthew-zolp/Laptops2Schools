@@ -32,6 +32,7 @@ JobPositionAssignment{
     Donation_Batch__c {
         picklist Status__c
         lookup Account__c
+        lookup Donation_Coordinator__c
     }
     IndividualApplication{}
     LaptopSoftwareInstallation__c {
