@@ -22,10 +22,10 @@ flowchart TD
     Volunteers["Volunteers"]
     RecyclingCompanies["Recycling Companies"]
     Students["Students"]
-  end
+  end 
 
   subgraph Internal_Users["Internal Users (Direct Access)"]
-    SchoolACs["🧑School ACs"]
+    SchoolACs["School ACs"]
     RecyclingACs["Recycling ACs"]
     ITSpecialists["IT Specialists"]
     SecurityTeam["Security Team"]
